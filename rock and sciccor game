@@ -1,0 +1,46 @@
+import random
+choose=['Rock','Paper','Scissor']
+name=input("PLEASE ENTER YOUR LOVELY NAME FIRST: ")
+rounds=int(input("ENTER THE NUMBER OF ROUNDS: "))
+JARVIS=0
+PLAYERSCORE=0
+gameon=True
+count_round=0
+
+print("Welcome " + name.title())
+
+while gameon:
+    count_round +=1
+    computer_option=random.choice(choose)
+    player_option=input("Enter Rock/Paper/Scissor: ").title()
+
+    print("J.A.R.V.I.S Choose: " + computer_option)
+    print("Your option: " + player_option)
+
+    print("----------------------")
+    print("")
+    print("Round No: " + str(rounds - (rounds - count_round)))
+    print("------ Score Board ------")
+    print(name.title() + ": " + str(PLAYERSCORE) + " | J.A.R.V.I.S: " + str(JARVIS))
+    print("")
+
+
+    if player_option == computer_option:
+        print("It's a tie!")
+    elif (player_option == 'Rock' and computer_option == 'Scissor') or (player_option == 'Scissor' and computer_option == 'Paper') or (player_option == 'Paper' and computer_option == 'Rock'):
+        print("You win this round!")
+        PLAYERSCORE += 1
+    else:
+        print("J.A.R.V.I.S wins this round!")
+        JARVIS += 1
+
+
+    if count_round == rounds:
+        gameon = False
+        print("Game Over!")
+        if PLAYERSCORE > JARVIS:
+            print("You win the game!")
+        elif PLAYERSCORE < JARVIS:
+            print("J.A.R.V.I.S wins the game!")
+        else:
+            print("It's a tie game!")
